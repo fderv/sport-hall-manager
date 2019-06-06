@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Courses">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox prefHeight="607.0" prefWidth="243.0" spacing="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addCourse" prefHeight="26.0" prefWidth="179.0" text="Create Course" />
+                              <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="26.0" prefWidth="180.0" text="Delete Course" />
+                              <Button layoutX="25.0" layoutY="102.0" mnemonicParsing="false" onAction="#studentToCourse" prefHeight="26.0" prefWidth="180.0" text="Add Student to Course">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                     <right>
+                        <TreeView fx:id="courseDetails" prefHeight="607.0" prefWidth="337.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <left>
+                        <TableView fx:id="courseTable" prefHeight="607.0" prefWidth="486.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="courseNameCol" maxWidth="368.0" prefWidth="368.0" text="Course Name" />
+                            <TableColumn fx:id="courseQuotaCol" maxWidth="5001180.0" prefWidth="118.0" text="Quota" />
+                          </columns>
+                        </TableView>
+                     </left>
+                  </BorderPane>
+               </content>
+          </Tab>
+            <Tab text="Students">
+               <content>
+                  <BorderPane>
+                     <left>
+                        <TableView fx:id="studentTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="studentIDCol" maxWidth="120.0" prefWidth="120.0" text="ID" />
+                            <TableColumn fx:id="studentNameCol" maxWidth="280.0" prefWidth="280.0" text="Name" />
+                              <TableColumn fx:id="studentSNameCol" maxWidth="200.0" prefWidth="200.0" text="Surname" />
+                              <TableColumn fx:id="studentMailCol" maxWidth="240.0" prefWidth="240.0" text="Email" />
+                          </columns>
+                        </TableView>
+                     </left>
+                     <right>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="184.0" spacing="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addStudent" prefHeight="26.0" prefWidth="179.0" text="New Student" />
+                              <Button mnemonicParsing="false" onAction="#editStudent" prefHeight="26.0" prefWidth="180.0" text="Edit Student" />
+                              <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="26.0" prefWidth="180.0" text="Delete Student" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab text="Trainers">
+               <content>
+                  <BorderPane>
+                     <left>
+                        <TableView fx:id="trainerTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                           <columns>
+                              <TableColumn fx:id="trainerNameCol" maxWidth="280.0" prefWidth="280.0" text="Name" />
+                              <TableColumn fx:id="trainerSNameCol" maxWidth="200.0" prefWidth="200.0" text="Surname" />
+                              <TableColumn fx:id="trainerMailCol" maxWidth="240.0" prefWidth="240.0" text="Email" />
+                              <TableColumn fx:id="trainerBranchCol" maxWidth="120.0" prefWidth="120.0" text="Branch" />
+                           </columns>
+                        </TableView>
+                     </left>
+                     <right>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="184.0" spacing="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addTrainer" prefHeight="26.0" prefWidth="179.0" text="New Trainer" />
+                              <Button mnemonicParsing="false" onAction="#editTrainer" prefHeight="26.0" prefWidth="180.0" text="Edit Trainer" />
+                              <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#deleteTrainer" prefHeight="26.0" prefWidth="180.0" text="Delete Trainer" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab text="Places">
+               <content>
+                  <BorderPane>
+                     <right>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="184.0" spacing="15.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addPlace" prefHeight="26.0" prefWidth="179.0" text="New Place" />
+                              <Button mnemonicParsing="false" onAction="#editPlace" prefHeight="26.0" prefWidth="180.0" text="Edit Place" />
+                              <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#deletePlace" prefHeight="26.0" prefWidth="180.0" text="Delete Place" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </right>
+                     <left>
+                        <TableView fx:id="placeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="placeNameCol" maxWidth="200.0" prefWidth="200.0" text="Place" />
+                            <TableColumn fx:id="placeDescCol" maxWidth="740.0" prefWidth="740.0" text="Description" />
+                          </columns>
+                        </TableView>
+                     </left>
+                  </BorderPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <HBox alignment="BOTTOM_RIGHT" spacing="1000.0">
+         <children>
+            <Label fx:id="logLabel" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
